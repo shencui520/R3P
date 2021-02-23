@@ -10,7 +10,7 @@
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
-
+cd openwrt
 WORKINGDIR="`pwd`/feeds/packages/net/smartdns"
 mkdir $WORKINGDIR -p
 rm $WORKINGDIR/* -fr
@@ -30,4 +30,5 @@ mv $WORKINGDIR/luci-app-smartdns-${LUCIBRANCH}/* $WORKINGDIR/
 rmdir $WORKINGDIR/luci-app-smartdns-${LUCIBRANCH}
 rm $WORKINGDIR/${LUCIBRANCH}.zip
 
-./scripts/feeds install -a
+./scripts/feeds update -a && ./scripts/feeds install -a
+
